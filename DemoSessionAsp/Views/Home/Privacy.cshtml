@@ -1,0 +1,30 @@
+﻿@model BasketForm
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>@SessionManager.Courriel</h2>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (string value in SessionManager.Panier)
+        {
+            <tr>
+                <td>@value</td>
+            </tr>
+        }
+        <form action="AddBasket" method="post">
+            <input asp-for="Value" />
+            <input type="submit" value="Add" />
+        </form>
+    </tbody>
+</table>
